@@ -5,13 +5,13 @@ from selenium.webdriver.common.by import By
 
 @pytest.fixture(autouse=True)
 def testing():
-    pytest_driver = webdriver.Chrome()
+    pytest.driver = webdriver.Chrome()
     # Переходим на страницу авторизации
-    pytest_driver.get('http://petfriends.skillfactory.ru/login')
+    pytest.driver.get('http://petfriends.skillfactory.ru/login')
 
-    yield pytest_driver
+    yield pytest.driver
 
-    pytest_driver.quit()
+    pytest.driver.quit()
 
 def test_all_pet_friends():
 
